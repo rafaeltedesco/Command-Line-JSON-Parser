@@ -23,7 +23,7 @@ class Handler {
   write() {
     if (this.data) {
       let jsonData = this.stringify(this.data)
-      fs.writeFile(this.filename, jsonData, (err)=> {
+      fs.writeFile(`${this.filename}.json`, jsonData, (err)=> {
         if (err) throw err
         console.log('Data stored!')
       })
