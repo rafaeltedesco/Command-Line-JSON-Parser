@@ -6,7 +6,7 @@ const createHandler = ()=> {
 
 class Handler {
   constructor(filename, data=null){
-    this.filename = filename
+    this.filename = `${filename}.json`
     this.data = data
   }
 
@@ -23,7 +23,7 @@ class Handler {
   write() {
     if (this.data) {
       let jsonData = this.stringify(this.data)
-      fs.writeFile(`${this.filename}.json`, jsonData, (err)=> {
+      fs.writeFile(this.filename, jsonData, (err)=> {
         if (err) throw err
         console.log('Data stored!')
       })
